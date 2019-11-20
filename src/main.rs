@@ -42,7 +42,7 @@ fn delete(id: i32) -> Json<JsonValue> {
 
 fn main() {
     rocket::ignite()
-        .mount("/panthera", routes![create])
+        .mount("/panthera", routes![create, update, delete])
         .mount("/pantheras", routes![read])
         .launch();
 }
