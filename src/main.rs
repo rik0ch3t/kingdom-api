@@ -30,6 +30,16 @@ fn read() -> Json<JsonValue> {
     ]))
 }
 
+#[put("/<id>", data = "<panthera>")]
+fn update(id: i32, panthera: Json<Panthera>) -> Json<Panthera> {
+    panthera
+}
+
+#[delete("/<id>")]
+fn delete(id: i32) -> Json<JsonValue> {
+    Json(json!({"status": "ok"}))
+}
+
 fn main() {
     rocket::ignite()
         .mount("/panthera", routes![create])
